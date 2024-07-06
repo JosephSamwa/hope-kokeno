@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Admin - Manage Users</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            align-self: center;
+            align-content: center;
+            text-align: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="tel"], input[type="text"], input[type="email"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+        .alert{
+    width: 100%;
+    background: rgb(0, 255, 106);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    display: none;
+}
+.inputBox :active{
+    background: rgb(0, 17, 255);
+    transition: all 0.3s ease;
+}
+
+::placeholder{
+    font-size: 16px;
+}
+body{
+            background-image: url(logo.jpg);
+            background-position: fixed;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: auto;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .users {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: block;
+            width: 50%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: none; /* Hide the form initially */
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: .5em;
+            color: #333333;
+        }
+        input, select {
+            width: 100%;
+            padding: .5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .btn-show-form {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .hd{
+         display: flex;
+            align-items: center;
+            align-content: center;
+            text-align: center;
+            text-decoration: #00ff84;
+            align-self: center;
+            margin-top: 0%;
+            margin-left: auto;
+            margin-right:auto;
+        }
+        /* styles.css */
+#loadingSpinner {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #ccc;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+footer{
+    background-color: transparent;
+    position: fixed;
+    margin-bottom: 0%;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hd">
+            <img src="logo.jpg" alt="Company Logo">
+      <h1>HOPE KOKENO-CBO</h1>
+        </div>
+      
+    </header>
+    <h1>Admin - Manage Users</h1>
+    <div class="container">
+      <button class="btn btn-primary btn-show-form">Add New User</button>
+        <form action="" id="contactForm">
+          <h2>Register</h2>
+          <div class="alert">REGISTRATION SUCCESSFUL</div>
+          <div class="inputBox">
+              <input type="text" id="name" placeholder="Your name...." required/>
+          </div>
+          <div class="inputBox">
+              <input type="email" id="emailid" placeholder="Your Email....." required />
+          </div>
+          <div class="inputBox">
+              <input type="tel" id="phone" placeholder="Enter your phone number " required/>
+          </div>
+          <div class="inputBox">
+            <select name="gender" id="gender">
+              <option value="">select your gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+          <div class="inputBox">
+              <button type="submit">Submit</button>
+          </div>
+      </form>
+    </div>
+    <div class="users">
+        <button onclick="window.location.href='users.html'">View Registered Users</button>
+    </div>
+     
+    <footer><a href="index.html">VIEW WEBSITE</a></footer>
+    <!-- Add your JavaScript file here -->
+<script type="text/javascript">
+    // Show/Hide Add User Form
+const addUserButton = document.querySelector('.btn-show-form');
+const addUserForm = document.getElementById('contactForm');
+addUserButton.addEventListener('click', () => {
+  if(addUserForm.style.display="none")
+  {
+  addUserForm.style.display="block";
+  }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="script.js"></script
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+   
+    $('#contactForm').submit(function() {
+        showConfirmation();
+        hideForm();
+        $(this).hide(); // Hide the form
+    });
+    function showConfirmation() {
+    // Show a success message
+    Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful',
+        text: 'Member registered successfully!',
+        confirmButtonText: 'OK'})};
+    function hideForm(){
+        if(addUserForm.style.display="block")
+  {
+  addUserForm.style.display="none";
+  }
+    };
+</script>
+</body>
+</html>
+
+
+

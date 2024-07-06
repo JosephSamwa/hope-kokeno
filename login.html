@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signUp.css">
+    <!-- Include SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <!-- Add other Firebase services if needed (e.g., authentication, firestore) -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script> -->
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+       <!--  <p><a href="#" id="forgot-password-link">Forgot Password?</a></p> -->
+    </div>
+    <script type="module">
+        // script.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword,sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+ const firebaseConfig = {
+    apiKey: "AIzaSyAujFKDx_T7ZSEyYGmvbdhkmn8SdKCNXjs",
+    authDomain: "hope-kokeno-cbo.firebaseapp.com",
+    databaseURL: "https://hope-kokeno-cbo-default-rtdb.firebaseio.com",
+    projectId: "hope-kokeno-cbo",
+    storageBucket: "hope-kokeno-cbo.appspot.com",
+    messagingSenderId: "508964589142",
+    appId: "1:508964589142:web:33a4d190a497bb5ecab5f7"
+  };
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        // Implement your login logic here
+        await signInWithEmailAndPassword(auth, email, password);
+Swal.fire({
+    icon: 'success',
+    title: 'Login Successful!',
+    text: 'Welcome back!',
+}).then(() => {
+    // Redirect to dashboard or desired page
+    window.location.href = 'admin.html';
+});
+    } catch (error) {
+        console.error('Error signing in:', error.message);
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: 'Invalid credentials. Please try again.',
+        });
+    }
+});
+
+document.getElementById('forgot-password-link').addEventListener('click', () => {
+    Swal.fire({
+        icon: 'info',
+        title: 'Forgot Password?',
+        text: 'Enter your email to reset your password:',
+        input: 'email',
+        inputPlaceholder: 'Enter your email',
+        showCancelButton: true,
+        confirmButtonText: 'Reset Password',
+        cancelButtonText: 'Cancel',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Implement password reset logic here (e.g., send reset email)
+        sendPasswordResetEmail(result.value);
+            Swal.fire({
+                icon: 'success',
+                title: 'Password Reset Email Sent!',
+                text: 'Check your inbox for instructions.',
+            });
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
