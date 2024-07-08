@@ -147,8 +147,7 @@ footer {
   margin-bottom: 0%;
   width: 100%;
   height: fit-content;
-      height: 40px;
-      position: fixed;
+      position: absolute;
       bottom: 0px;
       left: 0px;
 }
