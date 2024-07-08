@@ -142,11 +142,9 @@
   </main>
 <footer>
        <div class="footer-container">
-      <div class="footer-logo">
-        <img src="logo.jpg" alt="Company Logo">
-      </div>
+     
       <div class="footer-links">
-        <h3>Useful Links</h3>
+        <p>Useful Links</p>
      <div>
           <a href="missionn.html">Mission</a>&nbsp;&nbsp;
           <a href="vision.html">Vision</a>  
@@ -167,7 +165,7 @@
       </div>
       <div class="footer-social">
         <h3>Follow Us</h3>
-       <a href="https://www.facebook.com/profile.php?id=61560784778025" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=61560784778025" target="_blank">
       <i class="fab fa-facebook fa-2x"></i>
     </a>
         <a href="https://x.com/HopeKokeno_CBO" target="_blank">
@@ -175,25 +173,29 @@
         </a>
         <a href="https://www.linkedin.com/in/hope-kokeno-cbo-572b02313" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo" style="width:50px;height:50px;">
-        </a>
+    </a>
       </div>
     </div>
     <div class="footer-copyright">
       <p>&copy; 2024. All rights reserved.Developed by JOSEPH SAMWA. <a href="mailto:samwajoseph8@gmail.com">samwajoseph8@gmail.com</a></p>
     </div>
   </footer>
-  <script>
-    const bt = document.getElementById("sidebar-toggle");
-    const navi = document.getElementById("navi");
-    const closeBtn = document.getElementById("closeBtn");
-    
-    bt.onclick = function() {
-      navi.style.display = 'block';
-    };
-    
-    closeBtn.onclick = function() {
-      navi.style.display = 'none';
-    };
-  </script>
-</body>
+    <!-- Include Bootstrap's JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      const bt = document.getElementById("sidebar-toggle");
+     const navi = document.getElementById("navi");
+     const closeBtn = document.getElementById("closeBtn");
+     
+     bt.onclick = function() {
+       navi.style.display = 'block';
+     };
+     
+     closeBtn.onclick = function() {
+       navi.style.display = 'none';
+     };
+   </script>
+  </body>
 </html>
