@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
     <title>Member Data</title>
     <style>
@@ -26,6 +28,7 @@
                 <th>PHONE</th>
                 <th>EMAIL</th>
                 <th>GENDER</th>
+                 <th>REGISTRATION DATE</th>
                 <!-- Remove the following line to exclude the Delete column -->
             </tr>
         </thead>
@@ -64,6 +67,7 @@
                             <td>${memberData.PHONE}</td>
                             <td>${memberData.EMAIL}</td>
                             <td>${memberData.GENDER}</td>
+                            <td>${memberData.TIMESTAMP}</td>
                             <td><button onclick="deleteRow('${key}')">Delete</button></td>
                         `;
                         row.setAttribute("data-id", key); // Set data-id attribute
