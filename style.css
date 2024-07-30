@@ -1,5 +1,7 @@
 /* General Styles */
+
 body {
+
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -142,30 +144,33 @@ button:hover {
 footer {
   background-color: aliceblue;
   color: hsl(251, 86%, 49%);
-  padding: 20px 0;
-  text-align: center;
-  margin-bottom: 0%;
+  padding: 20px;
+ text-align: center;
+ /* margin-bottom: 0%;*/
+
   width: 100%;
-  height: fit-content;
-      position:relative;
-      bottom: 0px;
-      left: 0px;
+ height:auto;
+    /*  position:relative;*/
+    /*  bottom: 0px;
+      left: 0px;*/
+
 }
 
 .footer-container {
-  display: flex;
+ display: flex;
+  flex-direction:row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+/* flex-wrap: wrap;*/
   max-width: 1200px;
   margin: 0 auto;
   color: blue;
 }
 
-.footer-logo img {
+/*.footer-logo img {
   height: 80px;
   width: 80px;
-}
+}*/
 
 .footer-links, .footer-social {
   flex: 1;
